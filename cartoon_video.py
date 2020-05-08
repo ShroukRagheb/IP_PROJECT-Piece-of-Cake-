@@ -39,3 +39,41 @@ def cartoon(img_rgb):
                                      cv2.THRESH_BINARY, 9, 2)
     # And between edge , rgb image 
     (x,y,z) = img_color.shape
+    img_edge = cv2.resize(img_edge,(y,x)) 
+    img_edge = cv2.cvtColor(img_edge, cv2.COLOR_GRAY2RGB)
+    return cv2.bitwise_and(img_color, img_edge)
+
+video= cv2.VideoCapture(input);
+(major_ver, minor_ver, subminor_ver) = (cv2.__version__).split('.')
+if int(major_ver)  < 3 :
+    fps = video.get(cv2.cv.CV_CAP_PROP_FPS)
+else :
+    fps = video.get(cv2.CAP_PROP_FPS)
+    
+    
+videoclip =mpe.VideoFileClip(input)
+background_music = videoclip.audio
+
+path = "C:/xampp/htdocs/photos"
+shutil.rmtree(path, ignore_errors=False, onerror=handleRemoveReadonly)
+time.sleep(1)
+os.makedirs(path)
+
+i=0
+while(video.isOpened()):
+    ret, frame = video.read()
+    if ret == False:
+        break
+        
+    cv2.imwrite('photos/kang'+str(i)+'.jpg',frame)
+    i+=1
+ 
+video.release()
+cv2.destroyAllWindows()
+
+
+
+path = "C:/xampp/htdocs/cartoonphotos"
+shutil.rmtree(path, ignore_errors=False, onerror=handleRemoveReadonly)
+time.sleep(1)
+os.makedirs(path)
