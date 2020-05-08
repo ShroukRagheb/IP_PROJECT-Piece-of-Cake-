@@ -15,3 +15,11 @@ lower_range=tuple(int(h[i:i+2], 16) for i in (0, 2, 4))
 
 h = input1.lstrip('#')
 upper_range=tuple(int(h[i:i+2], 16) for i in (0, 2, 4))
+
+h = input3.lstrip('#')
+new=tuple(int(h[i:i+2], 16) for i in (0, 2, 4))
+#load image
+img = mpimg.imread(input4)
+img2 = img.copy()
+# for every pixel: change color for each pixel has intensity higher than lower range and lower than upper range.
+for i in range(img.shape[0]):
