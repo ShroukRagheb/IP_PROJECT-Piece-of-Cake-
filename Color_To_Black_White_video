@@ -1,0 +1,29 @@
+import cv2
+import shutil
+from moviepy.editor import VideoFileClip, AudioFileClip
+import moviepy.editor as mpe
+import os
+import errno, stat
+import time
+import sys
+input=sys.argv[1]
+def handleRemoveReadonly(func, path, exc):
+  excvalue = exc[1]
+  if func in (os.rmdir, os.remove) and excvalue.errno == errno.EACCES:
+      os.chmod(path, stat.S_IRWXU| stat.S_IRWXG| stat.S_IRWXO) # 0777
+      func(path)
+  else:
+      raise
+
+video= cv2.VideoCapture(input);
+(major_ver, minor_ver, subminor_ver) = (cv2.__version__).split('.')
+if int(major_ver)  < 3 :
+    fps = video.get(cv2.cv.CV_CAP_PROP_FPS)
+else :
+    fps = video.get(cv2.CAP_PROP_FPS)
+    
+videoclip =mpe.VideoFileClip(input)
+background_music = videoclip.audio
+
+path = "photos"
+shutil.rmtree(path, ignore_errors=False, onerror=handleRemoveReadonly)
