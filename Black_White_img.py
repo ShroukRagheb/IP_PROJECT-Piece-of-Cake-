@@ -46,3 +46,18 @@ def color(frame):
   net.setInput(cv2.dnn.blobFromImage(img_l_rs))
 
   #Inference on network                                      
+  ab_dec = net.forward('class8_ab')[0,:,:,:].transpose((1,2,0)) # this is our result
+  #Resize to original size
+  ab_dec_us = cv2.resize(ab_dec, (W_orig, H_orig))
+  # concatenate with original image i.e. L channel
+  img_lab_out = np.concatenate((img_l[:,:,np.newaxis],ab_dec_us),axis=2) 
+  # convert to BGR space from Lab space
+  img_bgr_out = cv2.cvtColor(img_lab_out, cv2.COLOR_Lab2BGR)
+  # Clip and then rescale to 0-255
+  img_bgr_out = (255 * np.clip(img_bgr_out, 0, 1)).astype("uint8")
+  return img_bgr_out
+# Read the input image in BGR(CV2) format
+img_bgr = cv2.imread(input)
+# Output
+out = color(img_bgr)
+cv2.imwrite('C:/xampp/htdocs/output/output.jpg' , out)
