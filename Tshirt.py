@@ -98,3 +98,113 @@ for i in range(Black_Mask.shape[0]): # for every pixel:
         Black_Mask[i,j,2] = (0)
 
 # Invert the  shirt to white
+mask_white2=255-Black_Mask
+
+# Reduce noise
+mask_white2 = cv2.medianBlur(mask_white2, 15)
+
+# Convert to gray and get threshold
+gray = cv2.cvtColor(mask_white2,cv2.COLOR_BGR2GRAY)
+thresh = cv2.threshold(gray, 0, 255, cv2.THRESH_BINARY + cv2.THRESH_OTSU)[1]
+
+# Close contour
+kernel = cv2.getStructuringElement(cv2.MORPH_RECT, (7,7))
+mask_white2 = cv2.morphologyEx(thresh, cv2.MORPH_CLOSE, kernel, iterations=1)
+
+# Find outer contour and fill with white
+cnts = cv2.findContours(mask_white2, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
+cnts = cnts[0] if len(cnts) == 2 else cnts[1]
+cv2.fillPoly(mask_white2, cnts, [255,255,255])
+
+# Remove noise < min size by using connected component 
+nb_components, output, stats, centroids = cv2.connectedComponentsWithStats(mask_white2)
+sizes = stats[1:, -1]; nb_components = nb_components - 1
+min_size =2000
+mask_white = np.zeros((output.shape))
+for i in range(0, nb_components):
+    if sizes[i] >= min_size:
+        mask_white[output == i + 1] = 255
+
+# Invert white mask
+Black_mask = 255 - mask_white
+
+######## black+original
+# Convert Black_mask to 3-D
+W,L = Black_mask.shape
+mask_black_3CH = np.empty((W, L, 3), dtype=np.uint8)
+mask_black_3CH[:, :, 0] = Black_mask
+mask_black_3CH[:, :, 1] = Black_mask
+mask_black_3CH[:, :, 2] = Black_mask
+
+# Person + black shirt
+L3 = cv2.bitwise_and(mask_black_3CH,person)
+
+######white+original
+# Convert white_mask to 3-D
+W,L = mask_white.shape
+mask_white_3CH = np.empty((W, L, 3), dtype=np.uint8)
+mask_white_3CH[:, :, 0] = mask_white
+mask_white_3CH[:, :, 1] = mask_white
+mask_white_3CH[:, :, 2] = mask_white
+
+# Person + white shirt
+dst3_wh = cv2.bitwise_or(mask_white_3CH,L3)
+
+#######################################################################
+# Get height ,width ,size and center of old shirt
+white_mask =255 - mask_black_3CH
+ret, thresh = cv2.threshold(white_mask, 240, 255, cv2.THRESH_BINARY)
+white_mask= cv2.cvtColor(white_mask, cv2.COLOR_RGB2GRAY)
+nb_components, output, stats, centroids = cv2.connectedComponentsWithStats(white_mask)
+
+sizes = stats[1:, -1]; nb_components = nb_components - 1
+size_old = 0
+i_old = 0
+
+for i in range(0, nb_components):
+    if sizes[i] >= size_old:
+      i_old = i
+      size_old = sizes[i]
+      
+width_old = stats[i_old+1, cv2.CC_STAT_WIDTH]
+height_old = stats[i_old+1, cv2.CC_STAT_HEIGHT]
+center_old = centroids[i_old + 1]
+#######################################################################
+
+# Load the new shirt
+design = cv2.imread(input2)
+design = cv2.resize(design,(mask_white.shape[1],mask_white.shape[0]))
+
+# Threshold to convert new shirt to black color 
+(T, thresh2) = cv2.threshold(design, 195, 255, cv2.THRESH_BINARY)
+
+# Convert new shirt to white color 
+Invdesign=255-thresh2
+
+########################################################################
+# Get height,width and center of new shirt
+# Convert Invdesign from RGB to Gray
+design2= cv2.cvtColor(Invdesign, cv2.COLOR_RGB2GRAY)
+nb_components, output, stats, centroids = cv2.connectedComponentsWithStats(design2)
+sizes = stats[1:, -1]; nb_components = nb_components - 1
+size_new = 0
+i_new = 0
+design_new = np.zeros((output.shape))
+for i in range(0, nb_components):
+    if sizes[i] >= size_new:
+      size_new = sizes[i]
+      i_new = i
+
+width_new = stats[i_new+1, cv2.CC_STAT_WIDTH]
+height_new = stats[i_new+1, cv2.CC_STAT_HEIGHT]
+center_new = centroids[i_new + 1]
+design_new[output == i_new + 1] = 255
+#########################################################################
+
+# Load white image.We use it to change the center, width and height of new shirt to be equal to old shirt
+img_02 = cv2.imread("white_back.jpg")
+
+#########################################################################
+# change the center and width of new shirt to be equal to old shirt
+while (width_new-width_old > 20):
+  center_x = center_old[0] - center_new[0] 
