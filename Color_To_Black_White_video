@@ -27,3 +27,23 @@ background_music = videoclip.audio
 
 path = "photos"
 shutil.rmtree(path, ignore_errors=False, onerror=handleRemoveReadonly)
+time.sleep(1) 
+os.makedirs(path)
+
+i=0
+while(video.isOpened()):
+    ret, frame = video.read()
+    if ret == False:
+        break
+    frame=cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)   
+    cv2.imwrite('photos/kang'+str(i)+'.jpg',frame)
+    i+=1
+ 
+video.release()
+cv2.destroyAllWindows()
+
+img_array = []
+for j in range (i):
+    img = cv2.imread('photos/kang'+str(j)+'.jpg')
+    height, width, layers = img.shape
+    size = (width,height)
