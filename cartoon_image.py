@@ -28,3 +28,12 @@ def cartoon(img_rgb):
     img_edge = cv2.adaptiveThreshold(img_blur, 255,
                                      cv2.ADAPTIVE_THRESH_MEAN_C,
                                      cv2.THRESH_BINARY, 9, 2)
+    # And between edge , rgb image 
+    (x,y,z) = img_color.shape
+    img_edge = cv2.resize(img_edge,(y,x)) 
+    img_edge = cv2.cvtColor(img_edge, cv2.COLOR_GRAY2RGB)
+    return cv2.bitwise_and(img_color, img_edge)
+img_rgb = cv2.imread(input)
+res = cartoon(img_rgb)
+res = cv2.resize(res,(img_rgb.shape[1],img_rgb.shape[0]))
+cv2.imwrite('C:/xampp/htdocs/output/output.jpg' , res)
