@@ -1,1 +1,17 @@
 
+import matplotlib.pyplot as plt
+import matplotlib.image as mpimg
+from PIL import Image
+import sys
+
+input4 = sys.argv[1]
+input1=sys.argv[2]
+input2=sys.argv[3]
+input3=sys.argv[4]
+
+# Convert from hexa to rgb
+h = input2.lstrip('#')
+lower_range=tuple(int(h[i:i+2], 16) for i in (0, 2, 4))
+
+h = input1.lstrip('#')
+upper_range=tuple(int(h[i:i+2], 16) for i in (0, 2, 4))
