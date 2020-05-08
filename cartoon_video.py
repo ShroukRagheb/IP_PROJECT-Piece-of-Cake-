@@ -77,3 +77,40 @@ path = "C:/xampp/htdocs/cartoonphotos"
 shutil.rmtree(path, ignore_errors=False, onerror=handleRemoveReadonly)
 time.sleep(1)
 os.makedirs(path)
+for j in range (i):
+    img_rgb = cv2.imread('photos/kang'+str(j)+'.jpg')
+    res = cartoon(img_rgb)
+    res = cv2.resize(res,(img_rgb.shape[1],img_rgb.shape[0]))
+    cv2.imwrite('cartoonphotos/cartoon'+str(j)+'.jpg' , res)
+
+ 
+img_array = []
+len = 0
+
+for j in range (i):
+    img = cv2.imread('cartoonphotos/cartoon'+str(j)+'.jpg')
+    height, width, layers = img.shape
+    size = (width,height)
+    img_array.append(img)
+ 
+out = cv2.VideoWriter('output.avi',cv2.VideoWriter_fourcc(*'mp4v'), fps, size)
+
+for m in range(i):
+    out.write(img_array[m])
+out.release()
+
+my_original_clip = mpe.VideoFileClip("output.avi")
+new_clip = my_original_clip.set_audio(background_music)
+new_clip.write_videofile("output.mp4")
+
+path = "C:/xampp/htdocs/photos"
+shutil.rmtree(path, ignore_errors=False, onerror=handleRemoveReadonly)
+time.sleep(1)
+os.makedirs(path)
+
+path = "C:/xampp/htdocs/cartoonphotos"
+shutil.rmtree(path, ignore_errors=False, onerror=handleRemoveReadonly)
+time.sleep(1)
+os.makedirs(path)
+
+os.remove("output.avi")
