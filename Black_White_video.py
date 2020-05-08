@@ -46,3 +46,53 @@ def color(frame):
     # pass the L channel through the network which will predict the 'a' and 'b' channel values
     net.setInput(cv2.dnn.blobFromImage(img_l_rs))
     #Inference on network
+    ab_dec = net.forward('class8_ab')[0,:,:,:].transpose((1,2,0)) # this is our result
+
+    #Resize to original size
+    ab_dec_us = cv2.resize(ab_dec, (W_orig, H_orig))
+
+    # concatenate with original image i.e. L channel
+    img_lab_out = np.concatenate((img_l[:,:,np.newaxis],ab_dec_us),axis=2) 
+
+    # convert to BGR space from Lab space
+    img_bgr_out = cv2.cvtColor(img_lab_out, cv2.COLOR_Lab2BGR)
+
+    # Clip and then rescale to 0-255
+    img_bgr_out = (255 * np.clip(img_bgr_out, 0, 1)).astype("uint8")
+
+    return img_bgr_out
+
+# Opens the Video file
+video= cv2.VideoCapture(input);
+(major_ver, minor_ver, subminor_ver) = (cv2.__version__).split('.')
+if int(major_ver)  < 3 :
+    fps = video.get(cv2.cv2.cv2_CAP_PROP_FPS)
+    #print (fps)
+else :
+    fps = video.get(cv2.CAP_PROP_FPS)
+    #print (fps)
+    
+videoclip =mpe.VideoFileClip(input)
+background_music = videoclip.audio
+
+path = "C:/xampp/htdocs/photos"
+shutil.rmtree(path, ignore_errors=False, onerror=handleRemoveReadonly)
+time.sleep(1) 
+os.makedirs(path)
+
+i=0
+while(video.isOpened()):
+    ret, frame = video.read()
+
+    if ret == False:
+        break
+        
+    cv2.imwrite('photos/kang'+str(i)+'.jpg',frame)
+    i+=1
+ 
+video.release()
+cv2.destroyAllWindows()
+
+
+path = "C:/xampp/htdocs/cartoonphotos"
+shutil.rmtree(path, ignore_errors=False, onerror=handleRemoveReadonly)
