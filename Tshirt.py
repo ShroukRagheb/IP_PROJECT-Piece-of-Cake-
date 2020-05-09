@@ -208,3 +208,115 @@ img_02 = cv2.imread("white_back.jpg")
 # change the center and width of new shirt to be equal to old shirt
 while (width_new-width_old > 20):
   center_x = center_old[0] - center_new[0] 
+diff_x = width_new - width_old
+  diff = diff_x - abs(center_x)
+  if center_x > 0:
+    if diff > 0 :
+      if (abs(center_x) >= 1):
+        img_02_h=cv2.resize(img_02,(int(abs(center_x)),design.shape[0]))
+        design = cv2.hconcat([img_02_h, design])
+      if (diff >= 2):
+        img_03_h=cv2.resize(img_02,(int((diff)/2),design.shape[0]))
+        design = cv2.hconcat([img_03_h , design])
+        design = cv2.hconcat([design , img_03_h])
+    else:
+      if (diff_x >= 1):
+        img_02_h=cv2.resize(img_02,(int(diff_x),design.shape[0]))
+        design = cv2.hconcat([img_02_h, design])
+  else:
+    if diff > 0 :
+      if (abs(center_x) >= 1):
+        img_02_h=cv2.resize(img_02,(int(abs(center_x)),design.shape[0]))
+        design = cv2.hconcat([design, img_02_h])
+      if (diff >= 2):
+        img_03_h=cv2.resize(img_02,(int((diff)/2),design.shape[0]))
+        design = cv2.hconcat([img_03_h , design])
+        design = cv2.hconcat([design , img_03_h])
+    else :
+      if (diff_x >= 1):
+        img_02_h=cv2.resize(img_02,(int(diff_x),design.shape[0]))
+        design = cv2.hconcat([design, img_02_h])
+  design = cv2.resize(design,(mask_white.shape[1],mask_white.shape[0]))
+  (T, thresh2) = cv2.threshold(design, 195, 255, cv2.THRESH_BINARY)
+  # Convert new shirt to white color 
+  Invdesign=255-thresh2
+  # Convert Invdesign from RGB to Gray
+  design2= cv2.cvtColor(Invdesign, cv2.COLOR_RGB2GRAY)
+  # Get height,width and center of new shirt
+  nb_components, output, stats, centroids = cv2.connectedComponentsWithStats(design2)
+  sizes = stats[1:, -1]; nb_components = nb_components - 1
+  size_new = 0
+  i_new = 0
+  design_new = np.zeros((output.shape))
+  for i in range(0, nb_components):
+      if sizes[i] >= size_new:
+        size_new = sizes[i]
+        i_new = i
+  width_new = stats[i_new+1, cv2.CC_STAT_WIDTH]
+  height_new = stats[i_new+1, cv2.CC_STAT_HEIGHT]
+  center_new = centroids[i_new + 1]
+  design_new[output == i_new + 1] = 255
+#########################################################################
+#########################################################################
+# change the center and height of new shirt to be equal to old shirt
+height_old = height_old + 10
+center_old[1] = center_old[1] + 5
+while (height_new-height_old>2):
+  center_y = center_old[1] - center_new[1] 
+  diff_y = height_new - height_old
+  diff = diff_y - abs(center_y)
+  if center_y > 0:
+    if diff > 0 :
+      if (abs(center_y) >= 1):
+        img_02_v=cv2.resize(img_02,(design.shape[1],int(abs(center_y))))
+        design = cv2.vconcat([img_02_v,design])
+      if (diff >= 2):
+        img_03_v=cv2.resize(img_02,(design.shape[1],int((diff)/2)))
+        design = cv2.vconcat([img_03_v , design])
+        design = cv2.vconcat([design , img_03_v])
+    else:
+      if (diff_y >= 1):
+        img_02_v=cv2.resize(img_02,(design.shape[1],int(diff_y)))
+        design = cv2.vconcat([img_02_v,design])
+  else:
+    if diff > 0 :
+      if (abs(center_y) >= 1):
+        img_02_v=cv2.resize(img_02,(design.shape[1],int(abs(center_y))))
+        design = cv2.vconcat([design ,img_02_v])
+      if (diff >=2):
+        img_03_v=cv2.resize(img_02,(design.shape[1],int((diff)/2)))
+        design = cv2.vconcat([img_03_v , design])
+        design = cv2.vconcat([design , img_03_v])
+    else :
+      if (diff_y >= 1):
+        img_02_v=cv2.resize(img_02,(design.shape[1],int(diff_y)))
+        design = cv2.vconcat([design ,img_02_v])
+  design = cv2.resize(design,(mask_white.shape[1],mask_white.shape[0]))
+  (T, thresh2) = cv2.threshold(design, 195, 255, cv2.THRESH_BINARY)
+  # Convert new shirt to white color 
+  Invdesign=255-thresh2
+  # Convert Invdesign from RGB to Gray
+  design2= cv2.cvtColor(Invdesign, cv2.COLOR_RGB2GRAY)
+  # Get height,width and center of new shirt
+  nb_components, output, stats, centroids = cv2.connectedComponentsWithStats(design2)
+  sizes = stats[1:, -1]; nb_components = nb_components - 1
+  size_new = 0
+  i_new = 0
+  design_new = np.zeros((output.shape))
+  for i in range(0, nb_components):
+      if sizes[i] >= size_new:
+        size_new = sizes[i]
+        i_new = i
+  width_new = stats[i_new+1, cv2.CC_STAT_WIDTH]
+  height_new = stats[i_new+1, cv2.CC_STAT_HEIGHT]
+  center_new = centroids[i_new + 1]
+  design_new[output == i_new + 1] = 255
+###################################################################
+# Resize design to be equal to mask size 
+design = cv2.resize(design,(mask_white.shape[1],mask_white.shape[0]))
+# design + black mask --> new shirt 
+design_mask_mixed = cv2.bitwise_or(mask_black_3CH,design)
+# person with new shirt
+final_mask_black_3CH = cv2.bitwise_and(design_mask_mixed,dst3_wh)
+cv2.imwrite('C:/xampp/htdocs/output/output.jpg',final_mask_black_3CH) 
+os.remove('4.jpg')
