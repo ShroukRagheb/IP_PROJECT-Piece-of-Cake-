@@ -103,3 +103,116 @@ else
 {
 echo "Error !!";
 }
+}
+?>
+<?php if (isset($_POST['Submit02'])){?>
+<button class="btn home" id="2" onClick="window.location='cartoon2.php';"><b>CARTOONIZE IT</b></button><?php }?>
+
+
+<?php
+################################################BNW photo[11_image][12_video]###################################################################
+if(isset($_POST['Submit11']))
+{ 
+$name = 'input';
+$target_dir = "input/";
+$target_file = $target_dir . basename($_FILES["file11"]["name"]); $uploadOk = 1;
+$imageFileType = 'jpg';
+$target_new_file_name =  $target_dir.$name.".".$imageFileType;
+if(move_uploaded_file($_FILES["file11"]["tmp_name"],$target_new_file_name)) 
+{
+shell_exec("python Color_To_Black_white_Img.py $target_new_file_name");
+} 
+else 
+{
+echo "Error !!";
+}
+}
+?>
+<?php if (isset($_POST['Submit11'])){?>
+<button class="btn home" id="2" onClick="window.location='cartoon.php';"><b>GET BLACK AND WHITE VERSION</b></button><?php }?>
+<?php
+if(isset($_POST['Submit12']))
+{ 
+$name = 'input';
+$target_dir = "input/";
+$target_file = $target_dir . basename($_FILES["file12"]["name"]); $uploadOk = 1;
+$imageFileType = 'mp4';
+$target_new_file_name =  $target_dir.$name.".".$imageFileType;
+if(move_uploaded_file($_FILES["file12"]["tmp_name"],$target_new_file_name )) 
+{
+shell_exec("python Color_To_Black_white_video.py $target_new_file_name ");
+} 
+else 
+{
+echo "Error !!";
+}
+}
+?>
+<?php if (isset($_POST['Submit12'])){?>
+<button class="btn home" id="2" onClick="window.location='cartoon2.php';"><b>GET BLACK AND WHITE VERSION</b></button><?php }?>
+
+
+
+
+<?php
+###################################COLOTIZE PHOTO photo[21_image][22_video] ##############################################################################
+if(isset($_POST['Submit21']))
+{ 
+$name = 'input';
+$target_dir = "input/";
+$target_file = $target_dir . basename($_FILES["file21"]["name"]); $uploadOk = 1;
+$imageFileType = 'jpg';
+$target_new_file_name =  $target_dir.$name.".".$imageFileType;
+if(move_uploaded_file($_FILES["file21"]["tmp_name"],$target_new_file_name)) 
+{
+shell_exec("python Black_White_Img.py $target_new_file_name");
+} 
+else 
+{
+echo "Error !!";
+}
+}
+?>
+<?php if (isset($_POST['Submit21'])){?>
+<button class="btn home" id="2" onClick="window.location='cartoon.php';"><b>COLORIZE IT</b></button><?php }?>
+<?php
+if(isset($_POST['Submit22']))
+{ 
+$name = 'input';
+$target_dir = "input/";
+$target_file = $target_dir . basename($_FILES["file22"]["name"]); $uploadOk = 1;
+$imageFileType = 'mp4';
+$target_new_file_name =  $target_dir.$name.".".$imageFileType;
+if(move_uploaded_file($_FILES["file22"]["tmp_name"],$target_new_file_name)) 
+{
+shell_exec("python Black_white_video.py $target_new_file_name");
+} 
+else 
+{
+echo "Error !!";
+}
+}
+?>
+<?php if (isset($_POST['Submit22'])){?>
+<button class="btn home" id="2" onClick="window.location='cartoon2.php';"><b>COLORIZE IT</b></button><?php }?>
+<?php
+##########################################################CHANGE BACKGROUND photo[31_image][32_BG]#######################################################
+if(isset($_POST['Submit31']))
+{ 
+$name = 'input';
+$target_dir = "input/";
+$target_file = $target_dir . basename($_FILES["file31"]["name"]); $uploadOk = 1;
+$imageFileType = 'jpg';
+$target_new_file_name =  $target_dir.$name.".".$imageFileType;
+$name2 = 'input1';
+$target_dir2 = "input/";
+$target_file2 = $target_dir2 . basename($_FILES["file32"]["name"]); $uploadOk = 1;
+$imageFileType2 = 'jpg';
+$target_new_file_name2 =  $target_dir2.$name2.".".$imageFileType2;
+if(move_uploaded_file($_FILES["file31"]["tmp_name"],$target_new_file_name)&& move_uploaded_file($_FILES["file32"]["tmp_name"],$target_new_file_name2)) 
+{
+shell_exec("python Change_back.py $target_new_file_name $target_new_file_name2");
+
+
+Chat conversation end
+Type a message, @name...
