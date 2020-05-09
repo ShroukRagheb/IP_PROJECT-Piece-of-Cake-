@@ -208,7 +208,7 @@ img_02 = cv2.imread("white_back.jpg")
 # change the center and width of new shirt to be equal to old shirt
 while (width_new-width_old > 20):
   center_x = center_old[0] - center_new[0] 
-diff_x = width_new - width_old
+  diff_x = width_new - width_old
   diff = diff_x - abs(center_x)
   if center_x > 0:
     if diff > 0 :
