@@ -585,3 +585,246 @@ label{
   <p3><strong>Get Ready To</strong></p3>
   <p4><strong>Have Fun!</strong></p4>
   <img src="best.gif" style=" width: ; height :95%; position:absolute; left:55%"/>
+</div>
+</div>
+<div>
+  <div class="vertical-menu">
+    <a href="#" class="active" style="font-size:260%;text-shadow: 3px 3px white;" >Options</a>
+    <div style="background-color:RosyBrown; font-size:20%;">........................</div>
+    <a  class="hoverWrapper" id="a1" href="#" style="font-size:21px;" ><b>Cartoon</b>
+    <div id="hoverShow1" style="text-align : center;">Convert normal video or image to cartoon </br></br>Click on it to Try</div></a><div style="background-color:black; font-size:20%;">........................</div>
+    <!--<p>convert normal video or image to cartoon</p>-->
+    <a  class="hoverWrapper" id="a2" href="#" style="font-size:21px;"><b>Black and White</b>
+    <div id="hoverShow2"style="text-align : center;">Convert normal colorful video or image to Black and White</br></br>Click on it to Try</div></a><div style="background-color:black; font-size:20%;">........................</div>
+    <!--<p>convert normal colorful video or image to Black and White</p>-->
+    <a  class="hoverWrapper" id="a3" href="#" style="font-size:21px;" ><b>Colorize Photos/Videos</b>
+    <div id="hoverShow3" style="text-align : center;">Colorize Black and White video or image</br></br>Click on it to Try</div></a><div style="background-color:black; font-size:20%;">........................</div>
+    <!--<p>convert normal Black and White video or image to colorful</p>-->
+    <a class="hoverWrapper" id="a4" href="#" style="font-size:21px;" ><b>Change Background</b>
+    <div id="hoverShow4"style="text-align : center;">Change background with a new background</br></br>Click on it to Try</div></a><div style="background-color:black; font-size:20%;">........................</div>
+    <!--<p>change background with a new background</p>-->
+    <a class="hoverWrapper" id="a5" href="#" style="font-size:21px;"><b>Gray Background</b>
+    <div id="hoverShow5"style="text-align : center;">Convert video background or image background to gray</br></br>Click on it to Try</div></a><div style="background-color:black; font-size:20%;">........................</div>
+    <!--<p>convert video background or image background to gray</p>-->
+    <a class="hoverWrapper"id="a6" href="#" style="font-size:21px;"><b>Change Object Color</b>
+    <div id="hoverShow6"style="text-align : center;">Change object color with selected new color</br></br>Click on it to Try</div></a><div style="background-color:black; font-size:20%;">........................</div>
+    <!--<p>change T-shirt color with selected new color</p>-->
+    <a class="hoverWrapper" id="a7" href="#" style="font-size:21px;"><b>Dress_Room</b>
+    <div id="hoverShow7"style="text-align : center;">Try a new piece to see if it fit or not</br></br>Click on it to Try</div></a><div style="background-color:black; font-size:20%;">........................</div>
+    <!--<p>try a new piece to see if it fit or not </p>-->
+    <a class="hover" id="a8" href="#" style="font-size:10px;">
+    <div id="Show8"style="text-align : center;"></div></a>
+    <!--<p>try a new piece to see if it fit or not </p>-->
+  </div>
+</div>
+<script>
+   $(document).ready(function() {
+  $("#a1").click(function() {
+    $("#6").css("display", "none");
+    $("#1").css("display", "none");
+    $("#2").css("display", "none");
+    $("#3").css("display", "none");
+  $("#4").css("display", "none");
+  $("#5").css("display", "none");
+  $("#7").css("display", "none");
+  $("#0").css("display", "block");
+  });
+  $("#a2").click(function() {
+    $("#0").css("display", "none");
+    $("#2").css("display", "none");
+    $("#3").css("display", "none");
+    $("#4").css("display", "none");
+  $("#5").css("display", "none");
+  $("#6").css("display", "none");
+  $("#7").css("display", "none");
+  $("#1").css("display", "block");
+  });
+  $("#a3").click(function() {
+    $("#0").css("display", "none");
+    $("#1").css("display", "none");
+    $("#3").css("display", "none");
+    $("#4").css("display", "none");
+  $("#5").css("display", "none");
+  $("#6").css("display", "none");
+  $("#7").css("display", "none");
+  $("#2").css("display", "block");
+  });
+  $("#a4").click(function() {
+    $("#0").css("display", "none");
+    $("#1").css("display", "none");
+    $("#2").css("display", "none");
+    $("#4").css("display", "none");
+  $("#5").css("display", "none");
+  $("#6").css("display", "none");
+  $("#7").css("display", "none");
+  $("#3").css("display", "block");
+  });
+  $("#a5").click(function() {
+    $("#0").css("display", "none");
+    $("#1").css("display", "none");
+    $("#2").css("display", "none");
+    $("#3").css("display", "none");
+  $("#5").css("display", "none");
+  $("#6").css("display", "none");
+  $("#7").css("display", "none");
+  $("#4").css("display", "block");
+  });
+  $("#a6").click(function() {
+    $("#0").css("display", "none");
+    $("#1").css("display", "none");
+    $("#2").css("display", "none");
+    $("#3").css("display", "none");
+  $("#4").css("display", "none");
+  $("#6").css("display", "none");
+  $("#7").css("display", "none");
+  $("#5").css("display", "block");
+  });
+  $("#a7").click(function() {
+    $("#0").css("display", "none");
+    $("#1").css("display", "none");
+    $("#2").css("display", "none");
+    $("#3").css("display", "none");
+  $("#4").css("display", "none");
+  $("#5").css("display", "none");
+  $("#7").css("display", "none");
+  $("#6").css("display", "block");
+  });
+  $("#a8").click(function() {
+    $("#0").css("display", "none");
+    $("#1").css("display", "none");
+    $("#2").css("display", "none");
+    $("#3").css("display", "none");
+  $("#4").css("display", "none");
+  $("#5").css("display", "none");
+  $("#6").css("display", "none");
+  $("#7").css("display", "block");
+  });
+});
+$('#choose-file').inputFileText({
+    text: 'CONVERT'
+});
+function readURL0(input) {
+    if (input.files && input.files[0]) {
+        var reader = new FileReader();
+        reader.onload = function (e) {
+            $('#I01').attr('src', e.target.result).width(280).height(355);
+        };
+        reader.readAsDataURL(input.files[0]);
+    }
+}
+function readURL1(input) {
+    if (input.files && input.files[0]) {
+        var reader = new FileReader();
+        reader.onload = function (e) {
+            $('#I11').attr('src', e.target.result).width(270).height(355);
+        };
+        reader.readAsDataURL(input.files[0]);
+    }
+}
+function readURL2(input) {
+    if (input.files && input.files[0]) {
+        var reader = new FileReader();
+        reader.onload = function (e) {
+            $('#I21').attr('src', e.target.result).width(270).height(370);
+        };
+        reader.readAsDataURL(input.files[0]);
+    }
+}
+function readURL3(input) {
+    if (input.files && input.files[0]) {
+        var reader = new FileReader();
+        reader.onload = function (e) {
+            $('#I31').attr('src', e.target.result).width(305).height(370);
+        };
+        reader.readAsDataURL(input.files[0]);
+    }
+}
+function readURL33(input) {
+    if (input.files && input.files[0]) {
+        var reader = new FileReader();
+        reader.onload = function (e) {
+            $('#I32').attr('src', e.target.result).width(305).height(370);
+        };
+        reader.readAsDataURL(input.files[0]);
+    }
+}
+function readURL4(input) {
+    if (input.files && input.files[0]) {
+        var reader = new FileReader();
+        reader.onload = function (e) {
+            $('#I41').attr('src', e.target.result).width(275).height(355);
+        };
+        reader.readAsDataURL(input.files[0]);
+    }
+}
+function readURL5(input) {
+    if (input.files && input.files[0]) {
+        var reader = new FileReader();
+        reader.onload = function (e) {
+            $('#I51').attr('src', e.target.result).width(305).height(370);
+        };
+        reader.readAsDataURL(input.files[0]);
+    }
+}
+function readURL55(input) {
+    if (input.files && input.files[0]) {
+        var reader = new FileReader();
+        reader.onload = function (e) {
+            $('#I52').attr('src', e.target.result).width(270).height(355);
+        };
+        reader.readAsDataURL(input.files[0]);
+    }
+}
+function readURL6(input) {
+    if (input.files && input.files[0]) {
+        var reader = new FileReader();
+        reader.onload = function (e) {
+            $('#I61').attr('src', e.target.result).width(305).height(370);
+        };
+        reader.readAsDataURL(input.files[0]);
+    }
+}
+function readURL66(input) {
+    if (input.files && input.files[0]) {
+        var reader = new FileReader();
+        reader.onload = function (e) {
+            $('#I62').attr('src', e.target.result).width(305).height(370);
+        };
+        reader.readAsDataURL(input.files[0]);
+    }
+}
+  var recorder0= document.getElementById('recorder0');
+  var player0 = document.getElementById('player0');
+  recorder0.addEventListener('change', function(e) {
+    var file = e.target.files[0];
+    // Do something with the video file.
+    player0.src = URL.createObjectURL(file02);
+  });
+  var recorder1 = document.getElementById('recorder1');
+  var player1 = document.getElementById('player1');
+  recorder1.addEventListener('change', function(e) {
+    var file = e.target.files[0];
+    // Do something with the video file.
+    player1.src = URL.createObjectURL(file);
+  });
+  var recorder2 = document.getElementById('recorder2');
+  var player2 = document.getElementById('player2');
+  recorder2.addEventListener('change', function(e) {
+    var file = e.target.files[0];
+    // Do something with the video file.
+    player2.src = URL.createObjectURL(file);
+  });
+  var recorder4 = document.getElementById('recorder4');
+  var player4 = document.getElementById('player4');
+  recorder4.addEventListener('change', function(e) {
+    var file = e.target.files[0];
+    // Do something with the video file.
+    player4.src = URL.createObjectURL(file);
+  });
+  $("#files").change(function() {
+  filename = this.files[0].name
+  console.log(filename);
+});
+</script>
+</body>
+</html>
