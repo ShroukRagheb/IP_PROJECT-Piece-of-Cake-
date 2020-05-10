@@ -7,25 +7,25 @@ Our photo editor  will  give  the  user  different  choices . First, the will  b
 
 These instructions will get you a copy of the project up and running on your local machine for development and testing purposes.
 
-*** Step1: ***
+***Step1:***
 Go to the Apache Friends website and download XAMPP for Windows. For the easiest install, download the Basic Package's "self-extracting RAR archive." Wait for the download to finish and open it to begin installing XAMPP. Click the "Install" button to start the file extraction. When the Command Prompt screen appears, press the "Enter" key at every question to accept default settings.
-![Image description](https://drive.google.com/file/d/1F6T8zXEHBfqDCMv8jhqus7VkWLzywrmr/view?usp=sharing)
+![1](https://user-images.githubusercontent.com/36415283/81510206-6e72d280-9310-11ea-9567-e75f9b0c58dd.png)
 
-*** Step2: ***
+***Step2:***
 Start the XAMPP program. When started, XAMPP loads itself into your icon tray. The icon is orange with a white bone-like shape in its center. Single-click the icon to expand the Control Panel. Click on the "Start" button next to "Apache" to start your Apache Web server. When Apache is running, the word "Running" will appear next to it, highlighted in green.
-![Image description](https://drive.google.com/file/d/1XYCZeX6U3XonldobpRDQSnPFGy_mY5JT/view?usp=sharing)
+![2](https://user-images.githubusercontent.com/36415283/81510219-834f6600-9310-11ea-8fea-a56c868cb0f3.png)
 
-*** Step3: ***
+***Step3:***
 Download files from this link.
 https://drive.google.com/drive/u/1/folders/158qrNiOmexLTOlTWAk79zhfAiMed3qpU?fbclid=IwAR0V09ridqMSKhZ_SWOMLqv6sbVtGkK0DT80wUGgPvfxSPuzcFGXuV-Wfvo
 
-*** Step4: ***
+***Step4:***
 Place all files in the "HTDocs" folder located under the "XAMMP" folder on your C: drive. The file path is "C:\xampp\htdocs" for your Web server. 
 
-*** Step5: ***
+***Step5:***
 Open up any Web browser on your desktop and enter "localhost/index.php" into the address box. 
-![Image description](https://drive.google.com/file/d/1R7tGwMghWk0wbCSp-vlQEI1HEPixq8se/view?usp=sharing)
+![3](https://user-images.githubusercontent.com/36415283/81510232-982bf980-9310-11ea-80a4-0e50988dc87d.png)
 
-*** Step6: ***
+***Step6:***
 Click on “GET STARTED”.
 
