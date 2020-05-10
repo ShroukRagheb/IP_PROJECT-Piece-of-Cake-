@@ -9,11 +9,13 @@ These instructions will get you a copy of the project up and running on your loc
 
 ***Step1:***
 Go to the Apache Friends website and download XAMPP for Windows. For the easiest install, download the Basic Package's "self-extracting RAR archive." Wait for the download to finish and open it to begin installing XAMPP. Click the "Install" button to start the file extraction. When the Command Prompt screen appears, press the "Enter" key at every question to accept default settings.
-![1](https://user-images.githubusercontent.com/36415283/81510206-6e72d280-9310-11ea-9567-e75f9b0c58dd.png)
+<br/>
+![1](https://user-images.githubusercontent.com/36415283/81510312-12f51480-9311-11ea-9c0b-5f340c0b05e4.png)
 
 ***Step2:***
 Start the XAMPP program. When started, XAMPP loads itself into your icon tray. The icon is orange with a white bone-like shape in its center. Single-click the icon to expand the Control Panel. Click on the "Start" button next to "Apache" to start your Apache Web server. When Apache is running, the word "Running" will appear next to it, highlighted in green.
-![2](https://user-images.githubusercontent.com/36415283/81510219-834f6600-9310-11ea-8fea-a56c868cb0f3.png)
+<br/>
+![2](https://user-images.githubusercontent.com/36415283/81510465-23f25580-9312-11ea-85de-4373883f78ce.png)
 
 ***Step3:***
 Download files from this link.
@@ -24,7 +26,8 @@ Place all files in the "HTDocs" folder located under the "XAMMP" folder on your 
 
 ***Step5:***
 Open up any Web browser on your desktop and enter "localhost/index.php" into the address box. 
-![3](https://user-images.githubusercontent.com/36415283/81510232-982bf980-9310-11ea-80a4-0e50988dc87d.png)
+<br/>
+![3](https://user-images.githubusercontent.com/36415283/81510483-3cfb0680-9312-11ea-8527-37321a23178c.png)
 
 ***Step6:***
 Click on “GET STARTED”.
