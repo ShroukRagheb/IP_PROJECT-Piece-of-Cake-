@@ -108,7 +108,7 @@ p{
 .home {
    width:10% ;
    position: absolute;
-   top:94%;
+   top:105%;
    left:3.5%;
    bottom: 0;
    height: 7%;
@@ -296,7 +296,7 @@ label{
 
 <div class="show" id="0" style="display:block; width:80.5%; height:96%; background-color:gray; position: absolute;
   left:18.7%; top:2%; bottom:2%;">
-   <div class="V3"></div>
+  <div class="V3"></div>
   <div style=" height:50% ;position:absolute; top:2%; left:2%;">
   <img id="I01" src="baby1.jpg" style="width:28%; height:98%;"/>
 </div>
@@ -540,7 +540,7 @@ label{
     </form>
 </div>
 <div style="display:block; width:20.55%; height:4%; padding: 0.5% 0.5%; background-color:gray; position:absolute;
-    left:32.7%; top:88.5%; bottom:0;"></div>
+    left:32.7%; top:88%; bottom:0;"></div>
   </div>
   
 
@@ -579,44 +579,85 @@ label{
     left:39.55%; top:81.5%; bottom:0;"></div>
   </div>
   
+  <div class="show"  id="8" style="display:block; width:80%; height:96%; background-color:lightgray; position: absolute;
+  left:19.2%; top:2%; bottom:2%;">
+  <div style="display:block; width:66%; height:90%; background-color:none; position: absolute;
+  left:25%; top:2%; bottom:10%;"> 
+  <img id="I81" src="edge_image.jpg"style="width:40%; height:55%;" />
+</div>
+<div style=" width:66%; height:90%;position:absolute; top:2%; left:53%;">
+  <img id="I82" src="edge_image2.jpg"style="width:40%; height:55%;" />
+  </div>
+  <div class="split right" style="display:block; width:66%; height:30%; padding: 0.5% 0.5%;border-radius: 10.9%; background-color:gray; position:absolute;
+    left:17%; top:60%; bottom:0;"></br></br>
+  <p1 style="color:white;">Select Your Photo then click on <ins>CONVERT</ins> button</p1><hr>
+  <form action="upload.php" enctype="multipart/form-data" method="post" ><br>
+  <label for="file81" class="btn cartoonize">Select Your Photo</label>
+ 
+    <input type="file" name="file81" id="file81" value="image" onchange="readURL8(this);"/> <br>
+  <!--<input type="file" name="file51" id="file51" value="image" onchange="readURL5(this);"/><hr/> -->
+  <div style=" position:absolute; left:35%; top:62%; bottom:0;">
+  <input type="submit" class="btn cartoonize" value="CONVERT" name="Submit81"/>
+</div>
+    </form>
+</div>
+<div style="display:block; width:6.5%; height:4%; padding: 0.5% 0.5%; background-color:gray; position:absolute;
+    left:34.7%; top:73%; bottom:0;"></div>
+  </div>
   <div class="show" id="7" style="display:block; width:85%; height:96%; background-color:RosyBrown; position: absolute;
   left:18.7%; top:2%; bottom:2%;">
   <p2><strong>Piece Of Cake</strong></p2>
   <p3><strong>Get Ready To</strong></p3>
   <p4><strong>Have Fun!</strong></p4>
   <img src="best.gif" style=" width: ; height :95%; position:absolute; left:55%"/>
+  </div>
 </div>
-</div>
+
+
 <div>
   <div class="vertical-menu">
     <a href="#" class="active" style="font-size:260%;text-shadow: 3px 3px white;" >Options</a>
     <div style="background-color:RosyBrown; font-size:20%;">........................</div>
+    
     <a  class="hoverWrapper" id="a1" href="#" style="font-size:21px;" ><b>Cartoon</b>
     <div id="hoverShow1" style="text-align : center;">Convert normal video or image to cartoon </br></br>Click on it to Try</div></a><div style="background-color:black; font-size:20%;">........................</div>
     <!--<p>convert normal video or image to cartoon</p>-->
+   
     <a  class="hoverWrapper" id="a2" href="#" style="font-size:21px;"><b>Black and White</b>
     <div id="hoverShow2"style="text-align : center;">Convert normal colorful video or image to Black and White</br></br>Click on it to Try</div></a><div style="background-color:black; font-size:20%;">........................</div>
     <!--<p>convert normal colorful video or image to Black and White</p>-->
+    
     <a  class="hoverWrapper" id="a3" href="#" style="font-size:21px;" ><b>Colorize Photos/Videos</b>
     <div id="hoverShow3" style="text-align : center;">Colorize Black and White video or image</br></br>Click on it to Try</div></a><div style="background-color:black; font-size:20%;">........................</div>
     <!--<p>convert normal Black and White video or image to colorful</p>-->
+    
     <a class="hoverWrapper" id="a4" href="#" style="font-size:21px;" ><b>Change Background</b>
     <div id="hoverShow4"style="text-align : center;">Change background with a new background</br></br>Click on it to Try</div></a><div style="background-color:black; font-size:20%;">........................</div>
     <!--<p>change background with a new background</p>-->
+    
     <a class="hoverWrapper" id="a5" href="#" style="font-size:21px;"><b>Gray Background</b>
     <div id="hoverShow5"style="text-align : center;">Convert video background or image background to gray</br></br>Click on it to Try</div></a><div style="background-color:black; font-size:20%;">........................</div>
     <!--<p>convert video background or image background to gray</p>-->
+    
     <a class="hoverWrapper"id="a6" href="#" style="font-size:21px;"><b>Change Object Color</b>
     <div id="hoverShow6"style="text-align : center;">Change object color with selected new color</br></br>Click on it to Try</div></a><div style="background-color:black; font-size:20%;">........................</div>
     <!--<p>change T-shirt color with selected new color</p>-->
+    
+    <a class="hoverWrapper" id="a9" href="#" style="font-size:21px;"><b>Edges</b>
+    <div id="hoverShow7"style="text-align : center;">Convert normal photo to edges, so yo can paint it </br></br>Click on it to Try</div></a><div style="background-color:black; font-size:20%;">........................</div>
+
     <a class="hoverWrapper" id="a7" href="#" style="font-size:21px;"><b>Dress_Room</b>
     <div id="hoverShow7"style="text-align : center;">Try a new piece to see if it fit or not</br></br>Click on it to Try</div></a><div style="background-color:black; font-size:20%;">........................</div>
     <!--<p>try a new piece to see if it fit or not </p>-->
+    
     <a class="hover" id="a8" href="#" style="font-size:10px;">
     <div id="Show8"style="text-align : center;"></div></a>
     <!--<p>try a new piece to see if it fit or not </p>-->
   </div>
 </div>
+
+
+
 <script>
    $(document).ready(function() {
   $("#a1").click(function() {
@@ -628,7 +669,9 @@ label{
   $("#5").css("display", "none");
   $("#7").css("display", "none");
   $("#0").css("display", "block");
+  $("#8").css("display", "none");
   });
+
   $("#a2").click(function() {
     $("#0").css("display", "none");
     $("#2").css("display", "none");
@@ -637,8 +680,10 @@ label{
   $("#5").css("display", "none");
   $("#6").css("display", "none");
   $("#7").css("display", "none");
+  $("#8").css("display", "none");
   $("#1").css("display", "block");
   });
+
   $("#a3").click(function() {
     $("#0").css("display", "none");
     $("#1").css("display", "none");
@@ -647,8 +692,10 @@ label{
   $("#5").css("display", "none");
   $("#6").css("display", "none");
   $("#7").css("display", "none");
+  $("#8").css("display", "none");
   $("#2").css("display", "block");
   });
+  
   $("#a4").click(function() {
     $("#0").css("display", "none");
     $("#1").css("display", "none");
@@ -657,8 +704,10 @@ label{
   $("#5").css("display", "none");
   $("#6").css("display", "none");
   $("#7").css("display", "none");
+  $("#8").css("display", "none");
   $("#3").css("display", "block");
   });
+  
   $("#a5").click(function() {
     $("#0").css("display", "none");
     $("#1").css("display", "none");
@@ -667,21 +716,26 @@ label{
   $("#5").css("display", "none");
   $("#6").css("display", "none");
   $("#7").css("display", "none");
+  $("#8").css("display", "none");
   $("#4").css("display", "block");
   });
+  
   $("#a6").click(function() {
     $("#0").css("display", "none");
     $("#1").css("display", "none");
     $("#2").css("display", "none");
     $("#3").css("display", "none");
   $("#4").css("display", "none");
+  $("#8").css("display", "none");
   $("#6").css("display", "none");
   $("#7").css("display", "none");
   $("#5").css("display", "block");
   });
+  
   $("#a7").click(function() {
     $("#0").css("display", "none");
     $("#1").css("display", "none");
+    $("#8").css("display", "none");
     $("#2").css("display", "none");
     $("#3").css("display", "none");
   $("#4").css("display", "none");
@@ -689,6 +743,7 @@ label{
   $("#7").css("display", "none");
   $("#6").css("display", "block");
   });
+  
   $("#a8").click(function() {
     $("#0").css("display", "none");
     $("#1").css("display", "none");
@@ -697,12 +752,26 @@ label{
   $("#4").css("display", "none");
   $("#5").css("display", "none");
   $("#6").css("display", "none");
+  $("#8").css("display", "none");
   $("#7").css("display", "block");
+  });
+
+  $("#a9").click(function() {
+    $("#0").css("display", "none");
+    $("#1").css("display", "none");
+    $("#2").css("display", "none");
+    $("#3").css("display", "none");
+  $("#4").css("display", "none");
+  $("#5").css("display", "none");
+  $("#6").css("display", "none");
+  $("#8").css("display", "block");
+  $("#7").css("display", "none");
   });
 });
 $('#choose-file').inputFileText({
     text: 'CONVERT'
 });
+
 function readURL0(input) {
     if (input.files && input.files[0]) {
         var reader = new FileReader();
@@ -721,6 +790,7 @@ function readURL1(input) {
         reader.readAsDataURL(input.files[0]);
     }
 }
+
 function readURL2(input) {
     if (input.files && input.files[0]) {
         var reader = new FileReader();
@@ -766,6 +836,7 @@ function readURL5(input) {
         reader.readAsDataURL(input.files[0]);
     }
 }
+
 function readURL55(input) {
     if (input.files && input.files[0]) {
         var reader = new FileReader();
@@ -775,6 +846,7 @@ function readURL55(input) {
         reader.readAsDataURL(input.files[0]);
     }
 }
+
 function readURL6(input) {
     if (input.files && input.files[0]) {
         var reader = new FileReader();
@@ -793,38 +865,60 @@ function readURL66(input) {
         reader.readAsDataURL(input.files[0]);
     }
 }
+
+function readURL8(input) {
+    if (input.files && input.files[0]) {
+        var reader = new FileReader();
+        reader.onload = function (e) {
+            $('#I81').attr('src', e.target.result).width(305).height(370);
+        };
+        reader.readAsDataURL(input.files[0]);
+    }
+}
+
+
   var recorder0= document.getElementById('recorder0');
   var player0 = document.getElementById('player0');
+
   recorder0.addEventListener('change', function(e) {
     var file = e.target.files[0];
     // Do something with the video file.
     player0.src = URL.createObjectURL(file02);
+  
   });
+  
   var recorder1 = document.getElementById('recorder1');
   var player1 = document.getElementById('player1');
+
   recorder1.addEventListener('change', function(e) {
     var file = e.target.files[0];
     // Do something with the video file.
     player1.src = URL.createObjectURL(file);
+  
   });
   var recorder2 = document.getElementById('recorder2');
   var player2 = document.getElementById('player2');
+
   recorder2.addEventListener('change', function(e) {
     var file = e.target.files[0];
     // Do something with the video file.
     player2.src = URL.createObjectURL(file);
+  
   });
   var recorder4 = document.getElementById('recorder4');
   var player4 = document.getElementById('player4');
+
   recorder4.addEventListener('change', function(e) {
     var file = e.target.files[0];
     // Do something with the video file.
     player4.src = URL.createObjectURL(file);
   });
+
   $("#files").change(function() {
   filename = this.files[0].name
   console.log(filename);
 });
 </script>
+
 </body>
 </html>
