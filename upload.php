@@ -5,6 +5,7 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <script type="text/javascript" src="js/bootstrap-filestyle.min.js"> </script>
+
 <style>
 .btn {
   border: none; /* Remove borders */
@@ -18,6 +19,7 @@
   margin: auto;
   background-color:sliver;
 }
+
 .btn:hover{
    background :Black ;
    color: RosyBrown;
@@ -65,7 +67,9 @@ p {
   text-shadow: -1px 0 white, 0 4px white, 4px 0 white, 0 -1px white;
 }
 </style>
-<p>YOUR IMAGE IS SUCCESSFULLY UPLOAD CLICK BUTTON BLEW :</p>
+<p>YOUR IMAGE IS SUCCESSFULLY UPLOAD CLICK BUTTON BELOW :</p>
+
+
 <?php
 ################################################Cartoon_photo[01_image][02_video]#############################################
 if(isset($_POST['Submit01']))
@@ -278,8 +282,8 @@ $target_new_file_name =  $target_dir.$name.".".$imageFileType;
 if(move_uploaded_file($_FILES["file51"]["tmp_name"],$target_new_file_name)) 
 {
 $sum1=$_POST['MyColorPicker1'];
-$sum2=$_POST['MyColorPicker2']; 
-$sum3=$_POST['MyColorPicker3']; 
+$sum2=$_POST['MyColorPicker2'];	
+$sum3=$_POST['MyColorPicker3'];	
 
 shell_exec("python changeColor.py $target_new_file_name $sum1 $sum2 $sum3");
 } 
@@ -291,6 +295,30 @@ echo "Error !!";
 ?>
 <?php if (isset($_POST['Submit51'])){?>
 <button class="btn home" id="2" onClick="window.location='cartoon.php';"><b>CHANGE OBJECT COLOR</b></button><?php }?>
+
+<?php
+########################################################## EDGES #######################################################
+if(isset($_POST['Submit81']))
+{ 
+$name = 'input';
+$target_dir = "input/";
+$target_file = $target_dir . basename($_FILES["file81"]["name"]); $uploadOk = 1;
+$imageFileType = 'jpg';
+$target_new_file_name =  $target_dir.$name.".".$imageFileType;
+
+if(move_uploaded_file($_FILES["file81"]["tmp_name"],$target_new_file_name)) 
+{
+
+shell_exec("python edges.py $target_new_file_name");
+} 
+else 
+{
+echo "Error !!";
+}
+}
+?>
+<?php if (isset($_POST['Submit81'])){?>
+<button class="btn home" id="8" onClick="window.location='cartoon.php';"><b>EDGES</b></button><?php }?>
 
 <?php
 ##########################################################CHANGE T-SHIRT[61_image][62_new-shirt]#######################################################
