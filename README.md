@@ -1,6 +1,12 @@
+## Student Names:
+* Abdullah Galal 
+* Sara Abdelkhalek 
+* Shrouk Ragheb 
+
 # IP_PROJECT-Piece-of-Cake-
 Photo  editing  is  tough.  It requires time, patience and technical chops  not  to  mention  complicated , expensive  software. With our photo editor, you can  easily  turn  photo  you  like  into  a  photo  you  love .
 Our photo editor  will  give  the  user  different  choices . First, the will  be  able  to  convert  normal  video  or image  to  cartoon . Also will  allow  user  to  convert  colorful  image  or  video to (white & black)  and  vice versa  . He  can  replace  the  background  of  an  image  with  another  one  easily  instead of  using  Photoshop App . All  of  us  can't  make  a  decision  easily  at  shopping  time  "umm  buy  it  or  not"  ,  with  our  photo-editor  we  will  make  it  very  simple  you  can  try  a  new  clothes  and  change  their  colors .  All  with  just  a  single click .
+
 
 ## Demo video
 https://drive.google.com/file/d/1HTrweLDofiX5P3jrvxvecd9MHh0J9jLT/view?fbclid=IwAR3R5wbwg65sqz6vkHHKfeTiwxM84cSh_G-yXYmE0CsrOIEmR3EV85GKIgo
